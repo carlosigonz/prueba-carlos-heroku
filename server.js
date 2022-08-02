@@ -4,7 +4,7 @@ const app = express();
 app.get('/', (req, res) => {
     res
         .status(200)
-        .send('Hello server is running')
+        .send('Hola Jhoel todo bien con la prueba')
         .end();
 });
 
