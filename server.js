@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const TeleBot = require('telebot');
+const TOKEN = process.env.TOKEN
+const bot = new TeleBot(TOKEN);
 
 app.get('/', (req, res) => {
     res
@@ -14,3 +17,9 @@ app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
     console.log('Press Ctrl+C to quit.');
 });
+
+
+
+bot.on('text', (msg) => msg.reply.text(msg.text));
+bot.on(['/start', '/hello'], (msg) => msg.reply.text('Welcome!'));
+bot.start();
